@@ -11,6 +11,20 @@ bye() {
     exit 1
 }
 
+OwO() {
+    echo "
+    *******************************************
+    *     ooooo                   oooooo      *         
+    *    o     o                 o      o     *          
+    *   o       o               o        o    *           
+    *    o     o                 o      o     *          
+    *     ooooo   w     ww     w  oooooo      *         
+    *              w   w   w  w               *
+    *                w      w                 *
+    *******************************************
+    "
+}
+
 # variables
 extendPKG=""
 favoratePKG="nyancat zsh docker docker-compose npm htop nmap git wget curl vim"
@@ -55,3 +69,5 @@ then
     /etc/init.d/nfs start
 fi
 
+OwO
+echo "finish"
