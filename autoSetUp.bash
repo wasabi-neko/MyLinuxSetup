@@ -28,6 +28,7 @@ OwO() {
 # variables
 extendPKG=""
 favoratePKG="nyancat zsh docker docker-compose npm htop nmap git wget curl vim"
+user=`whoami`
 
 # main
 
@@ -54,6 +55,7 @@ sudo chsh -s $(which zsh)
 ### oh-my-zsh
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+sudo sed -i -e "s/{USER_NAME}/$user/g" $PWD/.zshrc
 sudo cp ./.zshrc ~   # overwrite zshrc setting file
 
 ## NFS
