@@ -21,7 +21,7 @@ useYum=false
 ## change root password
 echo "wanna change root password? y/n"
 read isChRootpwd
-isChRootpwd = `echo $isChRootpwd | tr '[A-Z]' '[a-z]'`
+isChRootpwd=`echo $isChRootpwd | tr '[A-Z]' '[a-z]'`
 if [ $isChRootpwd == 'y' ] | [ $isChRootpwd == 'yes' ];
 then
     sudo passwd root
@@ -30,7 +30,7 @@ fi
 ## change user
 echo "wanna add a new user and login as the new user? y/n"
 read isAddUser
-isAddUser = `echo $isAddUser | tr '[A-Z]' '[a-z]'`
+isAddUser=`echo $isAddUser | tr '[A-Z]' '[a-z]'`
 if [ $isAddUser == 'y' ] || [ $isAddUser == 'yes' ];
 then
     echo "new userName:"
@@ -47,8 +47,8 @@ then
 fi
 
 ## install pkg
-whichApt = `which apt`
-whichYum = `which yum`
+whichApt=`which apt`
+whichYum=`which yum`
 
 if [ $whichApt == '/usr/bin/apt' ];
 then
@@ -75,7 +75,7 @@ cp ./.zshrc ~   # overwrite zshrc setting file
 ## NFS
 echo "enable NFS? y/n"
 read enableNFS
-enableNFS = `echo $enableNFS | tr '[A-Z]' '[a-z]'`
+enableNFS=`echo $enableNFS | tr '[A-Z]' '[a-z]'`
 if [ $enableNFS == 'y'] | [ $enableNFS == 'yes' ];
 then
     sudo apt install -r rcpbind nfs-common nfs-kernel-server
