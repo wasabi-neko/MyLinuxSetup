@@ -22,7 +22,7 @@ useYum=false
 echo "wanna change root password? y/n"
 read isChRootpwd
 isChRootpwd=`echo $isChRootpwd | tr '[A-Z]' '[a-z]'`
-if [ $isChRootpwd == 'y' ] | [ $isChRootpwd == 'yes' ];
+if [ $isChRootpwd == 'y' ] || [ $isChRootpwd == 'yes' ];
 then
     sudo passwd root
 fi
@@ -76,7 +76,7 @@ cp ./.zshrc ~   # overwrite zshrc setting file
 echo "enable NFS? y/n"
 read enableNFS
 enableNFS=`echo $enableNFS | tr '[A-Z]' '[a-z]'`
-if [ $enableNFS == 'y'] | [ $enableNFS == 'yes' ];
+if [ $enableNFS == 'y'] || [ $enableNFS == 'yes' ];
 then
     sudo apt install -r rcpbind nfs-common nfs-kernel-server
     echo "/home/$newUserName 192.168.0.0/24(ew,insecure,syn)" >> /etc/exports
