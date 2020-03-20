@@ -38,8 +38,9 @@ whichYum=`which yum`
 
 if [ $whichApt == '/usr/bin/apt' ];
 then
-    sudo apt update -y &&
-    sudo apt-get upgrade -y ||
+    sudo apt update -y
+    sudo apt-get upgrade -y
+    echo "installing $favoratePKG"
     sudo apt install -y $favoratePKG $extendPKG 
 elif [ $whichYum == '/usr/bin/yum' ];
 then
