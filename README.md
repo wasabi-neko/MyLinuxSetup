@@ -27,4 +27,7 @@ auto set up my small linux server
     - curl
 3. config zsh
     - oh-my-zsh
+    - > there's a ./.zshrc in the reposistory
+    - > the default .zshrc will be replace by this one
+
 4. setup NFS
