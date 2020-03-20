@@ -6,6 +6,11 @@ help() {
         -a \"pkg name\": add some other pkg you want"
 }
 
+bye() {
+    echo "bye. OwO"
+    exit 1
+}
+
 # variables
 extendPKG=""
 favoratePKG="nyancat zsh docker docker-compose npm htop nmap git wget curl vim"
@@ -17,7 +22,7 @@ useYum=false
 echo "wanna change root password? y/n"
 read isChRootpwd
 isChRootpwd = `echo $isChRootpwd | tr '[A-Z]' '[a-z]'`
-if ["$isChRootpwd"=="y"] | ["$isChRootpwd"=="yes"];
+if [ $isChRootpwd == 'y' ] | [ $isChRootpwd == 'yes' ];
 then
     sudo passwd root
 fi
@@ -26,7 +31,7 @@ fi
 echo "wanna add a new user and login as the new user? y/n"
 read isAddUser
 isAddUser = `echo $isAddUser | tr '[A-Z]' '[a-z]'`
-if ["$isAddUser"=="y"] || ["$isAddUser"=="yes"];
+if [ $isAddUser == 'y' ] || [ $isAddUser == 'yes' ];
 then
     echo "new userName:"
     read newUserName
@@ -45,18 +50,18 @@ fi
 whichApt = `which apt`
 whichYum = `which yum`
 
-if ["$whichApt"=="/usr/bin/apt"];
+if [ $whichApt == '/usr/bin/apt' ];
 then
     sudo apt update &&
     sudo apt-get upgrade ||
     sudo apt install -y $favoratePKG $extendPKG 
-elif ["$whichYum"=="/usr/bin/yum"];
+elif [ $whichYum == '/usr/bin/yum' ];
 then
     sudo yum update && 
     sudo yum install -y $favoratePKG  $extendPKG
 else
     echo "both apt and yum not found!!QUITE"
-    exit 1
+    bye
 fi
 
 ## config zsh
@@ -71,7 +76,7 @@ cp ./.zshrc ~   # overwrite zshrc setting file
 echo "enable NFS? y/n"
 read enableNFS
 enableNFS = `echo $enableNFS | tr '[A-Z]' '[a-z]'`
-if ["$enableNFS"=="y"] | ["$enableNFS"=="yes"];
+if [ $enableNFS == 'y'] | [ $enableNFS == 'yes' ];
 then
     sudo apt install -r rcpbind nfs-common nfs-kernel-server
     echo "/home/$newUserName 192.168.0.0/24(ew,insecure,syn)" >> /etc/exports
