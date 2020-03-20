@@ -52,9 +52,9 @@ fi
 ## config zsh
 sudo chsh -s $(which zsh)
 ### oh-my-zsh
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-cp ./.zshrc ~   # overwrite zshrc setting file
+sudo sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+sudo cp ./.zshrc ~   # overwrite zshrc setting file
 
 ## NFS
 echo "enable NFS? y/n"
@@ -63,9 +63,9 @@ enableNFS=`echo $enableNFS | tr '[A-Z]' '[a-z]'`
 if [ $enableNFS == 'y' ] || [ $enableNFS == 'yes' ];
 then
     sudo apt install -r rcpbind nfs-common nfs-kernel-server
-    echo "/home/$newUserName 192.168.0.0/24(ew,insecure,syn)" >> /etc/exports
-    $ sudo exportfs -ra
-    /etc/init.d/nfs start
+    sudo echo "/home/$newUserName 192.168.0.0/24(ew,insecure,syn)" >> /etc/exports
+    sudo exportfs -ra
+    sudo /etc/init.d/nfs start
 fi
 
 OwO
