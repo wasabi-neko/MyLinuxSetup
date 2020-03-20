@@ -36,8 +36,7 @@ then
     echo "new user id:"
     id $newUserName
 
-    usermod -aG sudo $newUserName
-
+    sudo adduser $newUserName sudo
     echo "switch to $newUserName"
     su $newUserName
 fi
