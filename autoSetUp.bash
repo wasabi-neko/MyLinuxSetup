@@ -16,8 +16,8 @@ useYum=false
 ## change root password
 echo "wanna change root password? y/n"
 read isChRootpwd
-isChRootpwd = `echo isChRootpwd | tr '[A-Z]' '[a-z]'`
-if [$isChRootpwd=="y"] | [$isChRootpwd=="yes"];
+isChRootpwd = `echo $isChRootpwd | tr '[A-Z]' '[a-z]'`
+if ["$isChRootpwd"=="y"] | ["$isChRootpwd"=="yes"];
 then
     sudo passwd root
 fi
@@ -26,7 +26,7 @@ fi
 echo "wanna add a new user and login as the new user? y/n"
 read isAddUser
 isAddUser = `echo $isAddUser | tr '[A-Z]' '[a-z]'`
-if [$isAddUser=="y"] || [$isAddUser=="yes"];
+if ["$isAddUser"=="y"] || ["$isAddUser"=="yes"];
 then
     echo "new userName:"
     read newUserName
@@ -50,7 +50,7 @@ then
     sudo apt update &&
     sudo apt-get upgrade ||
     sudo apt install -y $favoratePKG $extendPKG 
-elif ["whichYum"=="/usr/bin/yum"];
+elif ["$whichYum"=="/usr/bin/yum"];
 then
     sudo yum update && 
     sudo yum install -y $favoratePKG  $extendPKG
