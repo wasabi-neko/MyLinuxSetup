@@ -3,6 +3,7 @@
 ## usage
 
 ```=bash
+bash ./serUsers.bash
 bash ./autoSetUp.bash
 ```
 
