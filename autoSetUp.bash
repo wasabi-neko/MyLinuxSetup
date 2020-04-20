@@ -27,7 +27,7 @@ OwO() {
 
 # variables
 extendPKG=""
-favoratePKG="nyancat zsh docker docker-compose npm pip htop nmap git wget curl vim"
+favoratePKG="nyancat zsh docker docker-compose python3 pip3  npm htop nmap git wget curl vim"
 user=`whoami`
 
 # main
