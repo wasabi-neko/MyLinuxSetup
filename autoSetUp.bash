@@ -52,13 +52,14 @@ else
 fi
 
 ## config zsh
-sudo chsh -s $(which zsh)
 ### oh-my-zsh
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 sudo cp ./.zshrc ./.zshrc_cpoy  # make a zshrc copy
 sudo sed -i -e "s/{USER_NAME}/$user/g" $PWD/.zshrc_cpoy # replace the {USER_NAME} with $user
 sudo mv ./.zshrc_cpoy ~/.zshrc   # overwrite zshrc setting file
+
+# sudo chsh -s $(which zsh)
 
 OwO
 echo "finish"
