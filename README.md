@@ -23,7 +23,6 @@ auto set up my small linux server
     - nmap
     - docker
     - docker-compose
-    - npm
     - wget
     - curl
 3. config zsh
