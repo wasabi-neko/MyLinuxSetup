@@ -1,9 +1,4 @@
-#! bash
-# help functions
-help() {
-    echo "usage: 
-        -a \"pkg name\": add some other pkg you want"
-}
+#!/bin/sh
 
 bye() {
     echo "bye. OwO"

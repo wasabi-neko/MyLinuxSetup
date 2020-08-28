@@ -1,10 +1,4 @@
-#!bin/bash
-
-# help functions
-help() {
-    echo "usage: 
-        -a \"pkg name\": add some other pkg you want"
-}
+#!/bin/sh
 
 bye() {
     echo "bye. OwO"
@@ -27,7 +21,7 @@ OwO() {
 
 # variables
 extendPKG=""
-favoratePKG="nyancat zsh docker docker-compose htop nmap git wget curl vim"
+favoratePKG="nyancat zsh htop nmap git wget curl vim"
 user=`whoami`
 
 # main
@@ -53,13 +47,19 @@ fi
 
 ## config zsh
 ### oh-my-zsh
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+sh install.sh --unattended
+
+### zsh plugins
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-sudo cp ./.zshrc ./.zshrc_cpoy  # make a zshrc copy
+
+sudo cp ./.zshrc ./.zshrc_original_cpoy  # make a zshrc copy
 sudo sed -i -e "s/{USER_NAME}/$user/g" $PWD/.zshrc_cpoy # replace the {USER_NAME} with $user
 sudo mv ./.zshrc_cpoy ~/.zshrc   # overwrite zshrc setting file
 
-# sudo chsh -s $(which zsh)
+### start zsh
+sudo chsh -s $(which zsh)
+zsh
 
 OwO
 echo "finish"

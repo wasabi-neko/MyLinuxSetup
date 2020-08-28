@@ -72,7 +72,6 @@ ZSH_THEME="robbyrussell"
 plugins=(
     git
     docker
-    nmap
     zsh-syntax-highlighting
 )
 

@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/sh
 
 ## NFS
 echo "enable NFS? y/n"
