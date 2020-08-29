@@ -30,13 +30,13 @@ user=`whoami`
 whichApt=`which apt`
 whichYum=`which yum`
 
-if [ $whichApt == '/usr/bin/apt' ];
+if [ $whichApt = '/usr/bin/apt' ];
 then
     sudo apt update -y
     sudo apt-get upgrade -y
     echo "installing $favoratePKG"
     sudo apt install -y $favoratePKG $extendPKG 
-elif [ $whichYum == '/usr/bin/yum' ];
+elif [ $whichYum = '/usr/bin/yum' ];
 then
     sudo yum update && 
     sudo yum install -y $favoratePKG  $extendPKG

@@ -20,7 +20,7 @@ fi
 echo "wanna add a new user and login as the new user? y/n"
 read isAddUser
 isAddUser=`echo $isAddUser | tr '[A-Z]' '[a-z]'`
-if [ $isAddUser == 'y' ] || [ $isAddUser == 'yes' ];
+if [ $isAddUser = 'y' ] || [ $isAddUser = 'yes' ];
 then
     echo "new userName:"
     read newUserName
