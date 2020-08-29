@@ -49,16 +49,17 @@ fi
 ### oh-my-zsh
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 sh install.sh --unattended
+rm install.sh
 
 ### zsh plugins
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 sudo cp ./.zshrc ./.zshrc_copy  # make a zshrc copy
-sudo sed -i -e "s/{USER_NAME}/$user/g" $PWD/.zshrc_cpoy # replace the {USER_NAME} with $user
-sudo mv ./.zshrc_cpoy ~/.zshrc   # overwrite zshrc setting file
+sudo sed -i -e "s/{USER_NAME}/$user/g" $PWD/.zshrc_copy # replace the {USER_NAME} with $user
+sudo mv ./.zshrc_copy ~/.zshrc   # overwrite zshrc setting file
 
 ### start zsh
-sudo chsh -s $(which zsh)
+sudo chsh $(whoami) -s $(which zsh)
 zsh
 
 OwO
