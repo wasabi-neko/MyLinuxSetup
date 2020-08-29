@@ -53,7 +53,7 @@ sh install.sh --unattended
 ### zsh plugins
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-sudo cp ./.zshrc ./.zshrc_original_cpoy  # make a zshrc copy
+sudo cp ./.zshrc ./.zshrc_copy  # make a zshrc copy
 sudo sed -i -e "s/{USER_NAME}/$user/g" $PWD/.zshrc_cpoy # replace the {USER_NAME} with $user
 sudo mv ./.zshrc_cpoy ~/.zshrc   # overwrite zshrc setting file
 
