@@ -22,6 +22,8 @@ OwO() {
 extendPKG=""
 favoratePKG="nyancat sudo zsh htop nmap git wget curl vim"
 user=`whoami`
+sudoPrefix=""
+installCommand=""
 
 # main
 
@@ -30,30 +32,40 @@ if [ $user = "root" ]; then
     echo "your are now logged in as root.Do you want to continue? [Y/N]"
     read continueRoot
     continueRoot=`echo $continueRoot | tr '[A-Z]' '[a-z]'`
+    sudoPrefix=""
+
     if [ $continueRoot = "n" ] || [ $continueRoot = "no" ]; then
         bye
     fi
 else
     # get root permission
-    su
+    sudoPrefix="sudo"
 fi
 
 ## install pkg
-whichApt=`which apt`
+whichApt=`which apt-get`
 whichYum=`which yum`
 
-if [ $whichApt = "/usr/bin/apt" ]; then
-    apt update -y
-    apt-get upgrade -y
-    echo "installing $favoratePKG"
-    apt install -y $favoratePKG $extendPKG 
+### check installer
+if [ $whichApt = "/usr/bin/apt-get" ]; then
+    installCommand="apt-get"
 elif [ $whichYum = "/usr/bin/yum" ]; then
-    yum update
-    yum install -y $favoratePKG  $extendPKG
+    installCommand="yum"
 else
-    echo "both apt and yum are not found!!QUITE"
-    bye
+    echo "both apt and yum not found\nPlease enter the installer you want:"
+    read installCommand
+    if ! type $installCommand &> /dev/null; then
+        # user entered invailed install command
+        echo "invailled install command. QUIT!"
+        bye
+    fi
 fi
+
+### install
+echo `${sudoPrefix} ${installCommand} update -y`
+echo `${sudoPrefix} ${installCommand} upgrade -y`
+echo "installing $favoratePKG"
+echo `${sudoPrefix} ${installCommand} install -y ${favoratePKG} ${extendPKG}`
 
 ## config zsh
 ### oh-my-zsh
