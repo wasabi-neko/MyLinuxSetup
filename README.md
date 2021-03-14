@@ -6,31 +6,12 @@
 git clone https://github.com/wasabi-neko/MylinuxSetup
 ```
 
-```=sh
-cd {$working_sapce}/MylinuxSetup
-./autoSetup.sh
-```
+- install zsh with zim and powerlevel10k:
+  - `cd ./zsh && zsh ./install-p10k.zsh`
 
-## Feature
+- install zsh with oh-my-zsh and some useful packages
+  - `cd ./ && ./autoSetUp.sh`
 
-auto set up my small linux server
+## TODOS
 
-1. users
-    - change root pwd
-    - new user
-2. install pkg
-   - nyancat
-   - sudo
-   - zsh
-   - htop
-   - nmap
-   - git
-   - wget
-   - curl
-   - vim
-3. config zsh
-    - oh-my-zsh
-    - > there's a ./.zshrc in the reposistory
-    - > the default .zshrc will be replace by this one
-
-4. setup NFS
+- [ ] add more packages categorized with different usage
